@@ -47,7 +47,10 @@ class PuntoController extends Controller
      */
     public function store(Request $request)
     {
-       return Storage::disk('public')->put('image', 'puntos');
+
+      $image=$request->image;
+
+        return Storage::disk('public')->put( 'puntos', $request->file('image'));
       /*  $request->validate([
         'name'=>'required',
         'direccion'=>'required',

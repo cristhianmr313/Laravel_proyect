@@ -15,7 +15,7 @@
   @endif
 	<div class="card">
         <div class="card-body">
-            {!! Form::open(['route'=>'admin.puntos.store', 'method' => 'post','file'=>true ]) !!}
+            {!! Form::open(['route'=>'admin.puntos.store', 'method' => 'post','file' => true ]) !!}
                 <div class="form-group">
 
                     {!! Form::label('name', 'Nombre' ) !!}

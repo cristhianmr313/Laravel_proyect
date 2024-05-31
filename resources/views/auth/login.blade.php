@@ -42,7 +42,19 @@
                 <x-button class="ms-4">
                     {{ __('Log in') }}
                 </x-button>
+
             </div>
         </form>
+        <br>
+        <form method="Get" action="{{ route('register') }}">
+            @csrf
+            <div class="flex items-center justify-end mt-4">
+                <x-button >
+                    {{ __('Register') }}
+                </x-button>
+            </div>
+
+        </form>
+
     </x-authentication-card>
 </x-guest-layout>
