@@ -321,62 +321,36 @@ return [
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
+        [
+            'text' => 'Users',
+            'route' => 'admin.users.index',
+            'icon' => 'far fa-fw fa-user',
+
+        ],
         ['header' => 'Administrar'],
         [
             'text' => 'Transporte',
             'route' => 'admin.transportes.index',
-            'icon' => 'fab fa-fw fa-buffer',
+            'icon' => 'fa fa-user-circle',
         ],
         [
             'text' => 'Trabajadores',
             'route' => 'admin.trabajadores.index',
-            'icon' => 'fab fa-fw fa-buffer ',
+            'icon' => 'fa fa-car ',
         ],
 
         [
             'text' => 'Puntos',
             'route' => 'admin.puntos.index',
-            'icon' => 'fab fa-fw fa-buffer ',
+            'icon' => 'fa fa-adjust',
+        ],
+        [
+            'text' => 'Comentarios',
+            'route' => 'chat.index',
+            'icon' => 'fa fa-comment ',
         ],
 
-        [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-            ],
-        ],
+
         ['header' => 'labels'],
         [
             'text' => 'important',

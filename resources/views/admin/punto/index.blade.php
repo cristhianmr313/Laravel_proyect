@@ -43,7 +43,7 @@
                             <td>{{$punto->status}}</td>
                             <td>{{$punto->jefe}}</td>
                             <td>{{$punto->transporte}}</td>
-                            <th>{{Storage::url($punto->image->url)}}</th>
+
 
                             <td width='10px'>
                                 <a href="{{route('admin.puntos.edit',$punto )}}" class="btn btn-primary btn-sm">editar</a>

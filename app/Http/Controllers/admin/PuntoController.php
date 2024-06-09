@@ -18,8 +18,7 @@ class PuntoController extends Controller
      *
      */
 
-     use WithPagination;
-     protected $paginationTheme = "bootstrap";
+
     public function index()
 
     {
@@ -45,20 +44,31 @@ class PuntoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request , )
     {
+        $request->validate([
+            'name'=>'required',
+            'direccion'=>'required',
+            'descripcion'=>'required',
+            'status'=>'required',
+           ]);
+           $puntos=Punto::create($request->all());
 
-      $image=$request->image;
 
-        return Storage::disk('public')->put( 'puntos', $request->file('image'));
-      /*  $request->validate([
-        'name'=>'required',
-        'direccion'=>'required',
-        'descripcion'=>'required',
-        'status'=>'required',
-       ]);
-       $puntos=Punto::create($request->all());
-       return redirect()->route('admin.puntos.index',compact('puntos'))->with('info','Se creo con exito'); */
+        if($request->file('imagen')){
+           $url = Storage::disk('public')->put( 'puntos', $request->file('imagen'));
+           $puntos->image()->create([
+            'url'=> $url,
+
+
+        ]);
+        }
+
+
+
+
+
+       return redirect()->route('admin.puntos.index',compact('puntos'))->with('info','Se creo con exito');
     }
 
     /**
@@ -73,8 +83,11 @@ class PuntoController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Punto $punto)
+
     {
-       return view('admin.punto.edit',compact('punto'));
+        $trabajadores=Trabajador::all();
+        $transportes=Transporte::all();
+       return view('admin.punto.edit',compact('trabajadores','transportes','punto'));
     }
 
     /**
@@ -84,12 +97,31 @@ class PuntoController extends Controller
     {
         $request->validate([
             'name'=>'required',
-            'image'=>'required',
             'direccion'=>'required',
             'descripcion'=>'required',
             'status'=>'required',
            ]);
-           $punto->update($request->all());
+        $punto->update($request->all());
+
+        if($request->file('imagen')){
+
+            $url = Storage::disk('public')->put( 'puntos', $request->file('imagen'));
+
+
+            if($punto->image){
+                Storage::delete($punto->image->url);
+                 $punto->image()->update([
+                    'url'=> $url
+                ]);
+            }else{
+                $punto->image()->create([
+                    'url'=> $url
+                ]);
+            };
+
+        };
+
+
            return redirect()->route('admin.puntos.index',compact('punto'))->with('info','Se actualizo con exito');
     }
 

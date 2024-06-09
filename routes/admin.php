@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\TransporteController;
 use App\Http\Controllers\Admin\TrabajadorController;
 use App\Http\Controllers\Admin\PuntoController;
+use App\Http\Controllers\Admin\ChatController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RelacionPTTController;
 
 
@@ -15,5 +17,9 @@ Route::resource('transportes', TransporteController::class)->names('admin.transp
 Route::resource('trabajadores', TrabajadorController::class)->names('admin.trabajadores');
 
 Route::resource('puntos', PuntoController::class)->names('admin.puntos');
+
+Route::resource('users', UserController::class)->names('admin.users');
+
+Route::resource('chat', ChatController::class)->names('chat');
 
 

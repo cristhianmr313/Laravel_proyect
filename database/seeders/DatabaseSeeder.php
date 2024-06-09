@@ -21,9 +21,10 @@ class DatabaseSeeder extends Seeder
 
         Storage::makeDirectory('puntos');
 
-          User::factory(10)->create();
-          Transporte::factory(10)->create();
-          Trabajador::factory(10)->create();
+        $this->call(UserSeeder::class);
+        $this->call(RoleSeeder::class);
+          Transporte::factory(100)->create();
+          Trabajador::factory(100)->create();
           $this->call(PuntosSeeder::class);
 
          /*  User::factory()->create([

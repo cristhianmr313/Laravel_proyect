@@ -15,7 +15,8 @@
   @endif
 	<div class="card">
         <div class="card-body">
-            {!! Form::open(['route'=>'admin.puntos.store', 'method' => 'post','file' => true ]) !!}
+            <form  action="{{route('admin.puntos.store')}}" method="POST" enctype="multipart/form-data" >
+                @csrf
                 <div class="form-group">
 
                     {!! Form::label('name', 'Nombre' ) !!}
@@ -76,9 +77,9 @@
 
                 </div>
                 <div>
-                    {!! Form::label('image', 'Imagen', ) !!}
+                    {!! Form::label('imagen', 'Imagen', ) !!}
                     <br>
-                    {!! Form::file('image',  ["class"=>"form-control-file"] ) !!}
+                    {!! Form::file('imagen',  ["class"=>"form-control-file"] ) !!}
                 </div>
                 <div class="form-group">
                     <p class="font-weight-bold">Estado</p>
@@ -98,7 +99,7 @@
                 </div>
                 {!! Form::submit('Crear punto', ['class'=>'btn btn-primary btn-sm']) !!}
 
-            {!! Form::close() !!}
+            </form>
         </div>
     </div>
 @stop

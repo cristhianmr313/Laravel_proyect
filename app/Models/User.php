@@ -9,9 +9,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
+    use HasRoles;
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
@@ -67,9 +69,7 @@ class User extends Authenticatable
         return $this-> hasMny('App\Models\Comentarios');
     }
     /* relacion de muchos a muchos  */
-    public function roles(){
-          return $this->belongsToMany('App\Models\Roles');
-    }
+
 
     public function image(){
         return $this->morphOne('App\Models\Image','imageable');

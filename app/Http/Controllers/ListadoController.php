@@ -10,13 +10,13 @@ class ListadoController extends Controller
 {
     public function index(){
 
-        $transportes= Transporte::paginate(5);
-        $trabajadores= Trabajador::paginate(5);
-        return view('listado.index',compact('trabajadores','transportes'));
+
+        $trabajadores= Trabajador::paginate(10);
+        return view('listado.index',compact('trabajadores'));
     }
     public function lisTransporte(){
 
-        $transportes= Transporte::paginate(5);
+        $transportes= Transporte::paginate(10);
         return view('listado.lisTransporte',compact('transportes'));
     }
 }
