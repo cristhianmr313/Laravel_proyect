@@ -44,12 +44,11 @@
                               <a href="{{route('admin.trabajadores.edit',$trabajador )}}" class="btn btn-primary btn-sm">editar</a>
                           </td>
                           <td width='10px'>
-                              <form action="{{route('admin.trabajadores.destroy', $trabajador)}}" method="POST">
-                                  @csrf
-                                  @method('delete')
-
-                                  <button type="submit" class=" btn btn-danage btn-sm ">Eliminar</button>
-                              </form>
+                            <form action="{{route('admin.trabajadores.destroy',$trabajador)}}" method="POST" id='eliminar'>
+                                @method('DELETE')
+                                @csrf
+                                <input type="submit" name="process" class="btn btn-primary btn-sm" onclick="Confirmar(event)" value="<?php echo __("Eliminar"); ?>" >
+                               </form>
                           </td>
                       </tr>
                   @endforeach
@@ -58,3 +57,17 @@
       </div>
   </div>
 @stop
+@section('js')
+<script>
+
+   function Confirmar(e){
+var mensaje = "Desea confirmar su eliminacion?";
+
+    if (!confirm(mensaje)){
+    e.preventDefault();
+}}
+
+
+    </script>
+@stop
+

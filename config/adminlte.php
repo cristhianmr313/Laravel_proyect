@@ -331,12 +331,13 @@ return [
         [
             'text' => 'Transporte',
             'route' => 'admin.transportes.index',
-            'icon' => 'fa fa-user-circle',
+            'icon' => 'fa fa-car ',
+
         ],
         [
             'text' => 'Trabajadores',
             'route' => 'admin.trabajadores.index',
-            'icon' => 'fa fa-car ',
+            'icon' => 'fa fa-user-circle',
         ],
 
         [

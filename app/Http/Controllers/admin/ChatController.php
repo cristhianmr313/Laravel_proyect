@@ -33,6 +33,8 @@ class ChatController extends Controller
 
     {
         $chats=Comentarios::create($request->all());
+
+        session()->flash('notification', 'Se a enviado correctamente');
          return redirect()->route('chat.create');
 
     }

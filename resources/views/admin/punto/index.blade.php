@@ -49,12 +49,11 @@
                                 <a href="{{route('admin.puntos.edit',$punto )}}" class="btn btn-primary btn-sm">editar</a>
                             </td>
                             <td width='10px'>
-                                <form action="{{route('admin.puntos.destroy', $punto)}}" method="POST">
+                                <form action="{{route('admin.puntos.destroy',$punto)}}" method="POST" id='eliminar'>
+                                    @method('DELETE')
                                     @csrf
-                                    @method('delete')
-
-                                    <button type="submit" class=" btn btn-danage btn-sm ">Eliminar</button>
-                                </form>
+                                    <input type="submit" name="process" class="btn btn-primary btn-sm" onclick="Confirmar(event)" value="<?php echo __("Eliminar"); ?>" >
+                                   </form>
                             </td>
                         </tr>
                     @endforeach
@@ -64,4 +63,17 @@
 
 
     </div>
+@stop
+@section('js')
+<script>
+
+   function Confirmar(e){
+var mensaje = "Desea confirmar su eliminacion?";
+
+    if (!confirm(mensaje)){
+    e.preventDefault();
+}}
+
+
+    </script>
 @stop
